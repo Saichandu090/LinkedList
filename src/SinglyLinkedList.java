@@ -117,13 +117,55 @@ public class SinglyLinkedList<Object>
             index--;
         }
         Object data=temp.data;
-        if(temp!=null)
-        {
-            if (prev != null)
-                prev.next = temp.next;
-            temp.next=null;
-        }
+        if (prev != null)
+            prev.next = temp.next;
+        temp.next=null;
         return data;
+    }
+
+    public void display()
+    {
+        display(head);
+    }
+
+    public void display(Node start)
+    {
+        if (start==null)
+            return;
+        System.out.println(start.data);
+        display(start.next);
+    }
+
+    public void displayReverse()
+    {
+        displayReverse(head);
+    }
+
+    public void displayReverse(Node start)
+    {
+        if(start.next!=null)
+            displayReverse(start.next);
+        System.out.println(start.data);
+    }
+
+    public void reverse()
+    {
+        if(head==null)
+        {
+            System.out.println("List is Empty!!");
+            return;
+        }
+        Node temp=head;
+        Node curr=null;
+        Node prev=null;
+        while(temp!=null)
+        {
+            curr=temp.next;
+            temp.next=prev;
+            prev=temp;
+            temp=curr;
+        }
+        head=prev;
     }
 
     @Override

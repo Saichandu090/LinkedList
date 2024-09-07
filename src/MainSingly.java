@@ -14,6 +14,10 @@ public class MainSingly
         st.add(66);
         st.addLast(700);
         System.out.println(st);
-        System.out.println(st.delete(4));
+        st.reverse();
+        System.out.println(st);
+        st.display();
+        System.out.println("==========");
+        st.displayReverse();
     }
 }

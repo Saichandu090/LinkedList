@@ -20,5 +20,10 @@ public class MainSingly
         System.out.println("==========");
         st.displayReverse();
         System.out.println(st.linearSearch(700));
+        st.add(56);
+        st.add(95);
+        System.out.println(st);
+        st.add(100,7);
+        System.out.println(st);
     }
 }

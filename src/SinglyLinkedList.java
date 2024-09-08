@@ -23,9 +23,12 @@ public class SinglyLinkedList<Object>
     {
         Node n=new Node(data);
         if(index==0)
+        {
             addFirst(data);
+            return;
+        }
         Node temp=head;
-        while(temp!=null&&index>1)
+        while(temp!=null&&index>0)
         {
             temp=temp.next;
             index--;

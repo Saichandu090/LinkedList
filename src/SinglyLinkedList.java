@@ -136,6 +136,20 @@ public class SinglyLinkedList<Object>
         display(start.next);
     }
 
+    public boolean linearSearch(Object data)
+    {
+        return linearSearch(data,head);
+    }
+
+    public boolean linearSearch(Object data,Node start)
+    {
+        if(start==null)
+            return false;
+        if(start.data.equals(data))
+            return true;
+        return linearSearch(data,start.next);
+    }
+
     public void displayReverse()
     {
         displayReverse(head);
@@ -166,20 +180,6 @@ public class SinglyLinkedList<Object>
             temp=curr;
         }
         head=prev;
-    }
-
-    public boolean linearSearch(Object data)
-    {
-        return linearSearch(data,head);
-    }
-
-    public boolean linearSearch(Object data,Node start)
-    {
-        if(start==null)
-            return false;
-        if(start.data.equals(data))
-            return true;
-        return linearSearch(data,start.next);
     }
 
     @Override

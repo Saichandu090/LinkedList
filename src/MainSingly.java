@@ -19,5 +19,6 @@ public class MainSingly
         st.display();
         System.out.println("==========");
         st.displayReverse();
+        System.out.println(st.linearSearch(700));
     }
 }

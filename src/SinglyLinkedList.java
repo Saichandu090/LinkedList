@@ -168,6 +168,20 @@ public class SinglyLinkedList<Object>
         head=prev;
     }
 
+    public boolean linearSearch(Object data)
+    {
+        return linearSearch(data,head);
+    }
+
+    public boolean linearSearch(Object data,Node start)
+    {
+        if(start==null)
+            return false;
+        if(start.data.equals(data))
+            return true;
+        return linearSearch(data,start.next);
+    }
+
     @Override
     public String toString()
     {

@@ -5,19 +5,19 @@ public class MainSingly
         SinglyLinkedList<Integer> st=new SinglyLinkedList<Integer>();
         System.out.println("Size is : "+st.size());
         System.out.println(st.delete(0));
-        st.add(52);
+        st.add(522);
         System.out.println(st.delete(0));
-        st.add(63);
+        st.add(6332);
        // System.out.println(st.deleteFirst());
         st.add(85);
-        st.add(96);
-        st.add(66);
-        st.addLast(700);
+        st.add(960);
+        st.add(660);
+        st.add(709);
         System.out.println(st);
-        st.reverse();
+       // st.reverse();
         System.out.println(st);
-        st.display();
         System.out.println("==========");
-        st.displayReverse();
+        System.out.println(st.linearSearch(709));
+        System.out.println(st.binarySearch(6332));
     }
 }

@@ -1,5 +1,3 @@
-import javax.print.attribute.standard.JobKOctets;
-
 public class SinglyLinkedList<Object>
 {
     class Node
@@ -43,6 +41,11 @@ public class SinglyLinkedList<Object>
     public void addLast(Object data)
     {
         Node n=new Node(data);
+        if(head==null)
+        {
+            addFirst(data);
+            return;
+        }
         Node temp=head;
         while(temp.next!=null)
         {
@@ -166,6 +169,34 @@ public class SinglyLinkedList<Object>
             temp=curr;
         }
         head=prev;
+    }
+
+    public boolean binarySearch(Object data)
+    {
+        return binarySearch(data,head);
+    }
+
+    public boolean binarySearch(Object data,Node start)
+    {
+        if(start==null)
+            return false;
+        if(start.data.equals(data))
+            return true;
+        return binarySearch(data,start.next);
+    }
+
+    public boolean linearSearch(Object data)
+    {
+       return linearSearch(data,head);
+    }
+
+    public boolean linearSearch(Object data,Node start)
+    {
+        if(start==null)
+            return false;
+        if(start.data.equals(data))
+            return true;
+        return linearSearch(data,start.next);
     }
 
     @Override

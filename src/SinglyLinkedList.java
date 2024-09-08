@@ -7,6 +7,7 @@ public class SinglyLinkedList<Object>
         Node(Object data)
         {
             this.data=data;
+            this.next=null;
         }
     }
     Node head;

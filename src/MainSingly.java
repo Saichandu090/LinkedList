@@ -11,8 +11,7 @@ public class MainSingly
        // System.out.println(st.deleteFirst());
         st.add(85);
         st.add(96);
-        st.add(66);
-        st.addLast(700);
+        st.add(66); //Works as 'addLast' as well
         System.out.println(st);
         st.reverse();
         System.out.println(st);

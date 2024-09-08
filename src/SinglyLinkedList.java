@@ -42,17 +42,6 @@ public class SinglyLinkedList<Object>
             System.out.println("Index not in range!!");
     }
 
-    public void addLast(Object data)
-    {
-        Node n=new Node(data);
-        Node temp=head;
-        while(temp.next!=null)
-        {
-            temp=temp.next;
-        }
-        temp.next=n;
-    }
-
     public void add(Object data)
     {
         Node n=new Node(data);

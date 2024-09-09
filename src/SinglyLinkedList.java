@@ -1,25 +1,26 @@
-public class SinglyLinkedList<Object>
+public class SinglyLinkedList<T>
 {
     class Node
     {
-        Object data;
+        T data;
         Node next;
-        Node(Object data)
+        Node(T data)
         {
             this.data=data;
             this.next=null;
         }
     }
     Node head;
+    Node tail;
 
-    public void addFirst(Object data)
+    public void addFirst(T data)
     {
         Node n=new Node(data);
         n.next=head;
         head=n;
     }
 
-    public void add(Object data,int index)
+    public void addAt(T data,int index)
     {
         Node n=new Node(data);
         if(index==0)
@@ -28,49 +29,47 @@ public class SinglyLinkedList<Object>
             return;
         }
         Node temp=head;
+        Node prev=null;
         while(temp!=null&&index>0)
         {
+            prev=temp;
             temp=temp.next;
             index--;
         }
         if(temp!=null)
         {
-            n.next = temp.next;
-            temp.next = n;
+            n.next = prev.next;
+            prev.next = n;
         }
         else
             System.out.println("Index not in range!!");
     }
 
-    public void add(Object data)
+    public void add(T data)
     {
         Node n=new Node(data);
         if(head==null)
         {
-            head=n;
+            head=tail=n;
             return;
         }
-        Node temp=head;
-        while(temp.next!=null)
-        {
-            temp=temp.next;
-        }
-        temp.next=n;
+        tail.next=n;
+        tail=n;
     }
 
-    public Object deleteFirst()
+    public T deleteFirst()
     {
         if(head==null)
-            return (Object) "List is Empty!!";
-        Object data=head.data;
+            return (T) "List is Empty!!";
+        T data=head.data;
         head=head.next;
         return data;
     }
 
-    public Object deleteLast()
+    public T deleteLast()
     {
         if(head==null)
-            return (Object) "List is Empty!!";
+            return (T) "List is Empty!!";
         Node temp=head;
         Node prev=null;
         while(temp.next!=null)
@@ -78,17 +77,13 @@ public class SinglyLinkedList<Object>
             prev=temp;
             temp=temp.next;
         }
-        Object data=temp.data;
-        if(prev!=null) {
-            prev.next = null;
-        }
-        else {
-            head = null;
-        }
+        T data=tail.data;
+        prev.next=null;
+        tail=prev;
         return data;
     }
 
-    public Object delete(int index)
+    public T deleteAt(int index)
     {
         if(index==0)
         {
@@ -103,11 +98,11 @@ public class SinglyLinkedList<Object>
                  temp=temp.next;
             else
             {
-                 return (Object)"Index out of Range";
+                 return (T) "Index out of Range";
             }
             index--;
         }
-        Object data=temp.data;
+        T data=temp.data;
         if (prev != null)
             prev.next = temp.next;
         temp.next=null;
@@ -127,18 +122,18 @@ public class SinglyLinkedList<Object>
         display(start.next);
     }
 
-    public boolean linearSearch(Object data)
+    public boolean contains(T data)
     {
-        return linearSearch(data,head);
+        return contains(data,head);
     }
 
-    public boolean linearSearch(Object data,Node start)
+    public boolean contains(T data,Node start)
     {
         if(start==null)
             return false;
         if(start.data.equals(data))
             return true;
-        return linearSearch(data,start.next);
+        return contains(data,start.next);
     }
 
     public void displayReverse()
@@ -171,6 +166,32 @@ public class SinglyLinkedList<Object>
             temp=curr;
         }
         head=prev;
+    }
+
+    public boolean isEmpty()
+    {
+        if(head==null)
+            return true;
+        return false;
+    }
+
+    public void clear()
+    {
+        head=null;
+    }
+
+    public T firstElement()
+    {
+        if(head==null)
+            return null;
+        return head.data;
+    }
+
+    public T lastElement()
+    {
+        if(tail==null)
+            return null;
+        return tail.data;
     }
 
     @Override

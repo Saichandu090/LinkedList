@@ -1,102 +1,45 @@
-public class MyQueueSingly<Object>
+public class MyQueueSingly<T>
 {
-    class Node
-    {
-        Object data;
-        Node next;
-        Node(Object data)
-        {
-            this.data=data;
-            this.next=null;
-        }
-    }
-    Node head;
-    Node front;
+    SinglyLinkedList<T> sl=new SinglyLinkedList<T>();
 
-    public void enQueue(Object data)
+    public void enQueue(T data)
     {
-        Node n=new Node(data);
-        if(head==null)
-        {
-            head=front=n;
-            return;
-        }
-        Node temp=head;
-        while(temp.next!=null)
-        {
-            temp=temp.next;
-        }
-        temp.next=n;
+       sl.add(data);
     }
 
-    public Object deQueue()
+    public T deQueue()
     {
-        if(head==null)
-            return (Object) "Queue is Empty!!";
-        Object data=front.data;
-        head=head.next;
-        front.next=null;
-        front=head;
-        return data;
+       return sl.deleteFirst();
     }
 
-    public Object peek()
+    public T peek()
     {
-        if(head==null)
-            return (Object) "Queue is Empty!!";
-        return head.data; //return head.data;
+       return sl.firstElement();
     }
 
     public boolean isEmpty()
     {
-        if(head==null)
-            return true;
-        return false;
+       return sl.isEmpty();
     }
 
     public int size()
     {
-        return size(head);
-    }
-
-    public int size(Node start)
-    {
-        if(start==null)
-            return 0;
-        return 1+size(start.next);
+        return sl.size();
     }
 
     public void clear()
     {
-        head=null;
+        sl.clear();
     }
 
-    public boolean contains(Object data)
+    public boolean contains(T data)
     {
-        return contains(data,head);
-    }
-
-    public boolean contains(Object data,Node start)
-    {
-        if(start==null)
-            return false;
-        if(start.data.equals(data))
-            return true; //Case Sensitive
-        return contains(data,start.next);
+        return sl.contains(data);
     }
 
     @Override
     public String toString()
     {
-        String st="[";
-        Node temp=head;
-        while(temp!=null)
-        {
-            st=st+temp.data;
-            if(temp.next!=null)
-                st=st+"->";
-            temp=temp.next;
-        }
-        return st+"]";
+       return sl.toString();
     }
 }

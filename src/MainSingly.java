@@ -4,9 +4,9 @@ public class MainSingly
 
         SinglyLinkedList<Integer> st=new SinglyLinkedList<Integer>();
         System.out.println("Size is : "+st.size());
-        System.out.println(st.delete(0));
+        System.out.println(st.deleteAt(0));
         st.add(52);
-        System.out.println(st.delete(0));
+        System.out.println(st.deleteAt(0));
         st.add(63);
        // System.out.println(st.deleteFirst());
         st.add(85);
@@ -18,11 +18,12 @@ public class MainSingly
         st.display();
         System.out.println("==========");
         st.displayReverse();
-        System.out.println(st.linearSearch(700));
+        System.out.println(st.contains(700));
         st.add(56);
         st.add(95);
         System.out.println(st);
-        st.add(100,7);
+        st.addAt(100,2);
+        //st.addFirst(200);
         System.out.println(st);
     }
 }
